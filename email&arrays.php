@@ -78,7 +78,7 @@ elseif (strpos($_GET['email'], '@') === false || strpos($_GET['email'], '.')  ==
 
 <h2>AGGIUNGERE DATI AD UN ARRAY</h2>
 
-<h4>Con chiavi Standard</h4>
+<h4>Con chiavi Standard 0, 1, 2 ecc</h4>
 
 <?php
 
@@ -94,6 +94,90 @@ var_dump($strumenti_musicali);
 $user['età'] = 33;
 var_dump($user);
 ?>
+
+<h1>MANIPOLAZIONE ARRAY</h1>
+
+            <!-- MANIPOLAZIONE DI ARRAY  -->
+
+<!-- 1. array_key_exists(key, array) - restituisce TRUE se la chiave esiste, altrimenti FALSE -->
+
+<h3>--- OTTIMO PER I FLUSSI DI DECISIONE ---</h3>
+<h4>Key exist</h4>
+<?php
+$exist = array_key_exists('nome', $user);
+var_dump($exist);
+?>
+
+<!-- 2. in_array(value, array) - restituisce TRUE se il valore è presente nell'array altrimenti FALSE  -->
+ 
+ <h4>In Array</h4>
+ 
+ <?php
+$animals = ['cat', 'dog', 'paolo' ];
+// $in = in_array('paolo', $animals);
+$in = in_array('tiger', $animals);
+// qui di seguito si potrebbe 
+// proseguire con una condizione
+var_dump($in);
+ ?>
+
+<!-- 3. array_keys(array) - restituisce tutte le chiavi dell'Array.  -->
+
+<h4>array_keys</h4>
+
+<?php
+$shop = [
+    'prodotto' => 'abbigliamento',
+    'modello' => 'femminile',
+    'taglia' => 'S-M-L-XL'
+];
+
+$key = array_keys($shop);
+var_dump($key);
+?>
+
+<!-- 4. array_merge(array1, array2...) unsice due o più array - il CONCAT del mondo PHP  -->
+
+<h4> array_merge</h4>
+
+<?php
+
+$merged = array_merge($animals, $strumenti_musicali);
+var_dump($merged);
+
+?>
+
+<!-- 5. array_search(value, array) - cerca il valore all'interno di un array e 
+restituisce la chiave della prima occorrenza trovata -->
+
+<h4>array_search</h4>
+
+<?php
+$shop = [
+    'prodotto' => 'abbigliamento',
+    'modello' => 'femminile',
+    'taglia' => 'S-M-L-XL'
+];
+
+$target = array_search('femminile', $shop);
+var_dump($target);  
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
